@@ -10,6 +10,7 @@ const wizSpellSchema = new mongoose.Schema({
   casting: String,
   saving: String,
   description: String,
+  googleId: String,
 })
 
 module.exports = mongoose.model('WizSpell', wizSpellSchema);

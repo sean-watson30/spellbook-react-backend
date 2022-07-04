@@ -4,15 +4,17 @@ const express = require ('express');
 const mongoose = require ('mongoose');
 const morgan = require ('morgan');
 const cors = require ('cors');
-const admin = require ('firebase-admin');
+// const admin = require ('firebase-admin');
 const wizSpellsController = require('./controllers/wizSpells');
 
 const app = express();
 
 require('dotenv').config();
 
+// const serviceAccount = require('./firebase-service-key.json');
+
 // admin.initializeApp({
-//   credential: admin.credential.cert(require('./firebase-service-key.json'))
+//   credential: admin.credential.cert(serviceAccount)
 // });
 
 const { PORT = 4000, MONGODB_URL } = process.env;
@@ -30,6 +32,15 @@ app.use(express.json());
 app.use('/wizSpells', wizSpellsController);
 
 // Authorization Middleware (see video)
+// app.use(async (req, res, next) => {
+//   const token = req.get('Authorization');
+//   if (token) {
+//     console.log(token);
+//     const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''));
+//     console.log(user)
+//   }
+//   next();
+// })
 
 // ___________________ROUTES__________________________
 

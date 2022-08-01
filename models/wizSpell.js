@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const wizSpellSchema = new mongoose.Schema({
   level: String,
   name: String,
+  school: String,
   range: String,
   duration: String,
   aoe: String,

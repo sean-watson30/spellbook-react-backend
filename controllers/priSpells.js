@@ -1,6 +1,6 @@
 // ___________________DEPENDENCIES__________________________
 const router = require('express').Router();
-const WizSpell = require('../models/wizSpell');
+const PriSpell = require('../models/priSpell');
 const admin = require ('firebase-admin');
 
 const serviceAccount = require('../firebase-service-key.json');
@@ -41,19 +41,19 @@ const isAuthenticated = (req, res, next) => {
 
 // INDEX
 router.get('/', async (req, res) => {
-  const spell = await WizSpell.find({});
+  const spell = await PriSpell.find({});
     res.json(spell);
 })
 
 // CREATE
 router.post('/', isAuthenticated, async (req, res) => {
   req.body.googleId = req.user.uid;
-  res.json(await WizSpell.create(req.body));
+  res.json(await PriSpell.create(req.body));
 })
 
 // UPDATE
 router.put('/:id', isAuthenticated, async (req, res) => {
-  res.json(await WizSpell.findByIdAndUpdate(
+  res.json(await PriSpell.findByIdAndUpdate(
     req.params.id, 
     req.body, 
     { new: true }
@@ -62,7 +62,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
 
 // DELETE
 router.delete('/:id', isAuthenticated, async (req, res) => {
-  res.json(await WizSpell.findByIdAndDelete(req.params.id))
+  res.json(await PriSpell.findByIdAndDelete(req.params.id))
 })
 
 // ___________________Export__________________________

@@ -20,9 +20,11 @@ admin.initializeApp({
 });
 
 // const { PORT = 4000, MONGODB_URL } = process.env;
-const { MONGODB_URL } = process.env;
+// const { MONGODB_URL } = process.env;
+const { DATABASE_URL } = process.env;
 
-mongoose.connect(MONGODB_URL);
+// mongoose.connect(MONGODB_URL);
+mongoose.connect(DATABASE_URL);
 mongoose.connection
   .on('connected', () => console.log('Connected to MongoDB'))
   .on('error', (err) => console.log('Error with MongoDB: ' + err.message))

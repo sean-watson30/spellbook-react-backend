@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const priSpellSchema = new mongoose.Schema({
   level: String,
   name: String,
-  sphere: String,
+  school: String,
   range: String,
   duration: String,
   aoe: String,

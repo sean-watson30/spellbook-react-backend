@@ -7,6 +7,7 @@ const cors = require ('cors');
 const admin = require ('firebase-admin');
 const wizSpellsController = require('./controllers/wizSpells');
 const priSpellsController = require('./controllers/priSpells');
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
@@ -18,7 +19,8 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
-const { PORT = 4000, MONGODB_URL } = process.env;
+// const { PORT = 4000, MONGODB_URL } = process.env;
+const { MONGODB_URL } = process.env;
 
 mongoose.connect(MONGODB_URL);
 mongoose.connection

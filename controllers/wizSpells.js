@@ -3,7 +3,7 @@ const router = require('express').Router();
 const WizSpell = require('../models/wizSpell');
 const admin = require ('firebase-admin');
 
-const serviceAccount = require('../firebase-service-key.json');
+// const serviceAccount = require('../firebase-service-key.json');
 
 
 // ___________________Authorization Middleware__________________________

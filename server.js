@@ -4,7 +4,7 @@ const express = require ('express');
 const mongoose = require ('mongoose');
 const morgan = require ('morgan');
 const cors = require ('cors');
-const admin = require ('firebase-admin');
+// const admin = require ('firebase-admin');
 const wizSpellsController = require('./controllers/wizSpells');
 const priSpellsController = require('./controllers/priSpells');
 const PORT = process.env.PORT || 4000;
@@ -13,11 +13,11 @@ const app = express();
 
 require('dotenv').config();
 
-const serviceAccount = require('./firebase-service-key.json');
+// const serviceAccount = require('./firebase-service-key.json');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
 
 // const { PORT = 4000, MONGODB_URL } = process.env;
 // const { MONGODB_URL } = process.env;
